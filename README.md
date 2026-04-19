@@ -63,3 +63,4 @@ El prototipo de la interfaz está organizado por rutas en `app/` con layouts esp
 - Estado y datos: componentes React y utilidades locales
 - Plataforma: **Web** responsive
 Prueba de pipeline CI
+Prueba de pipeline CI
