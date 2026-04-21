@@ -48,7 +48,7 @@ export default function PatientDashboard() {
           <h2 className="text-2xl font-bold text-foreground">
             Bienvenido, {patient?.fullName || store.currentUser?.name}
           </h2>
-          <p className="text-muted-foreground">Gestiona tus citas medicas</p>
+          <p className="text-muted-foreground">Gestiona tus citas médicas</p>
         </div>
         <Button onClick={() => router.push('/patient/solicitar')}>
           <Calendar className="w-4 h-4 mr-2" />
@@ -103,7 +103,7 @@ export default function PatientDashboard() {
                 <Clock className="w-6 h-6 text-warning" />
               </div>
               <div>
-                <p className="text-sm text-muted-foreground">Proximos</p>
+                <p className="text-sm text-muted-foreground">Próximos</p>
                 <p className="text-2xl font-bold text-foreground">{stats.upcoming}</p>
               </div>
             </div>
@@ -113,7 +113,7 @@ export default function PatientDashboard() {
 
       <Card>
         <CardHeader className="flex flex-row items-center justify-between">
-          <CardTitle>Proximos Turnos</CardTitle>
+          <CardTitle>Próximos Turnos</CardTitle>
           <Button variant="ghost" size="sm" onClick={() => router.push('/patient/turnos')}>
             Ver todos
             <ArrowRight className="w-4 h-4 ml-2" />
@@ -123,7 +123,7 @@ export default function PatientDashboard() {
           {upcomingAppointments.length === 0 ? (
             <div className="text-center py-8">
               <Calendar className="w-12 h-12 text-muted-foreground/50 mx-auto mb-4" />
-              <p className="text-muted-foreground">No tienes turnos proximos</p>
+              <p className="text-muted-foreground">No tienes turnos próximos</p>
               <Button className="mt-4" onClick={() => router.push('/patient/solicitar')}>
                 Solicitar Turno
               </Button>

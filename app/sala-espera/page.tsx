@@ -96,13 +96,13 @@ export default function WaitingRoomPage() {
               <div className="bg-primary/10 px-6 py-4 border-b border-border">
                 <h2 className="text-xl font-semibold text-foreground flex items-center gap-3">
                   <div className="h-3 w-3 rounded-full bg-accent animate-pulse" />
-                  En Atencion
+                  En Atención
                 </h2>
               </div>
               <div className="p-6">
                 {inProgressPatients.length === 0 ? (
                   <p className="text-muted-foreground text-center py-8">
-                    No hay pacientes en atencion actualmente
+                    No hay pacientes en atención actualmente
                   </p>
                 ) : (
                   <div className="grid gap-4">
@@ -185,13 +185,13 @@ export default function WaitingRoomPage() {
               <div className="bg-primary/10 px-6 py-4 border-b border-border">
                 <h2 className="text-xl font-semibold text-foreground flex items-center gap-3">
                   <Clock className="h-5 w-5 text-primary" />
-                  Proximos Turnos
+                  Próximos Turnos
                 </h2>
               </div>
               <div className="p-6">
                 {nextPatients.length === 0 ? (
                   <p className="text-muted-foreground text-center py-8">
-                    No hay mas turnos programados
+                    No hay más turnos programados
                   </p>
                 ) : (
                   <div className="space-y-4">
@@ -221,7 +221,7 @@ export default function WaitingRoomPage() {
             {/* Statistics */}
             <div className="bg-card rounded-2xl shadow-lg p-6">
               <h3 className="text-lg font-semibold text-foreground mb-4">
-                Estadisticas del Dia
+                Estadísticas del Día
               </h3>
               <div className="grid grid-cols-2 gap-4">
                 <div className="bg-primary/10 rounded-xl p-4 text-center">
@@ -254,7 +254,7 @@ export default function WaitingRoomPage() {
             {/* Doctors Available */}
             <div className="bg-card rounded-2xl shadow-lg p-6">
               <h3 className="text-lg font-semibold text-foreground mb-4">
-                Medicos Disponibles
+                Médicos Disponibles
               </h3>
               <div className="space-y-3">
                 {doctors.filter(d => d.isActive).map((doctor) => (

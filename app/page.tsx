@@ -35,7 +35,7 @@ export default function HomePage() {
     {
       icon: Calendar,
       title: 'Agenda Inteligente',
-      description: 'Gestiona tus citas medicas de forma facil y rapida con nuestro sistema de turnos automatizado.',
+      description: 'Gestiona tus citas médicas de forma fácil y rápida con nuestro sistema de turnos automatizado.',
     },
     {
       icon: Clock,
@@ -44,13 +44,13 @@ export default function HomePage() {
     },
     {
       icon: Users,
-      title: 'Multiples Especialidades',
-      description: 'Accede a diferentes especialidades medicas y elige el profesional que mejor se adapte a tus necesidades.',
+      title: 'Múltiples Especialidades',
+      description: 'Accede a diferentes especialidades médicas y elige el profesional que mejor se adapte a tus necesidades.',
     },
     {
       icon: Shield,
       title: 'Datos Seguros',
-      description: 'Tu informacion personal esta protegida con los mas altos estandares de seguridad.',
+      description: 'Tu información personal está protegida con los más altos estándares de seguridad.',
     },
   ]
 
@@ -67,17 +67,17 @@ export default function HomePage() {
             </div>
             <nav className="hidden md:flex items-center gap-6">
               <a href="#features" className="text-muted-foreground hover:text-foreground transition-colors">
-                Caracteristicas
+                Características
               </a>
               <a href="#how-it-works" className="text-muted-foreground hover:text-foreground transition-colors">
-                Como Funciona
+                Cómo Funciona
               </a>
               <a href="/sala-espera" className="text-muted-foreground hover:text-foreground transition-colors">
                 Sala de Espera
               </a>
             </nav>
             <Button onClick={() => setShowLogin(true)}>
-              Iniciar Sesion
+              Iniciar Sesión
             </Button>
           </div>
         </div>
@@ -89,11 +89,11 @@ export default function HomePage() {
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative">
             <div className="text-center max-w-3xl mx-auto">
               <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold text-foreground tracking-tight text-balance">
-                Gestion de Turnos Medicos
+                Gestión de Turnos Médicos
                 <span className="text-primary"> Simplificada</span>
               </h1>
               <p className="mt-6 text-lg sm:text-xl text-muted-foreground leading-relaxed text-pretty">
-                Optimiza la experiencia de tus pacientes con un sistema moderno de gestion de turnos.
+                Optimiza la experiencia de tus pacientes con un sistema moderno de gestión de turnos.
                 Reduce tiempos de espera y mejora la eficiencia de tu consultorio.
               </p>
               <div className="mt-10 flex flex-col sm:flex-row items-center justify-center gap-4">
@@ -116,7 +116,7 @@ export default function HomePage() {
                 Todo lo que necesitas
               </h2>
               <p className="mt-4 text-lg text-muted-foreground">
-                Un sistema completo para la gestion eficiente de turnos medicos
+                Un sistema completo para la gestión eficiente de turnos médicos
               </p>
             </div>
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
@@ -140,7 +140,7 @@ export default function HomePage() {
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div className="text-center mb-16">
               <h2 className="text-3xl sm:text-4xl font-bold text-foreground">
-                Como Funciona
+                Cómo Funciona
               </h2>
               <p className="mt-4 text-lg text-muted-foreground">
                 Tres simples pasos para solicitar tu turno
@@ -148,9 +148,9 @@ export default function HomePage() {
             </div>
             <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
               {[
-                { step: '01', title: 'Selecciona Especialidad', desc: 'Elige la especialidad medica que necesitas' },
-                { step: '02', title: 'Elige Horario', desc: 'Selecciona el medico y horario disponible' },
-                { step: '03', title: 'Confirma tu Turno', desc: 'Recibe la confirmacion en tu correo electronico' },
+                { step: '01', title: 'Selecciona Especialidad', desc: 'Elige la especialidad médica que necesitas' },
+                { step: '02', title: 'Elige Horario', desc: 'Selecciona el médico y horario disponible' },
+                { step: '03', title: 'Confirma tu Turno', desc: 'Recibe la confirmación en tu correo electrónico' },
               ].map((item) => (
                 <div key={item.step} className="relative">
                   <div className="text-6xl font-bold text-primary/10 absolute -top-4 left-0">
@@ -177,7 +177,7 @@ export default function HomePage() {
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 max-w-4xl mx-auto">
               {[
                 { role: 'Administrador', email: 'admin@clinica.com', pass: 'admin123' },
-                { role: 'Medico', email: 'doctor@clinica.com', pass: 'doctor123' },
+                { role: 'Médico', email: 'doctor@clinica.com', pass: 'doctor123' },
                 { role: 'Recepcionista', email: 'recepcion@clinica.com', pass: 'recepcion123' },
                 { role: 'Paciente', email: 'paciente@email.com', pass: 'paciente123' },
               ].map((cred) => (
@@ -202,7 +202,7 @@ export default function HomePage() {
               <span className="font-semibold text-foreground">MediTurno</span>
             </div>
             <p className="text-sm text-muted-foreground">
-              Sistema de Gestion de Turnos Medicos
+              Sistema de Gestión de Turnos Médicos
             </p>
           </div>
         </div>

@@ -77,7 +77,7 @@ export default function AdminDashboard() {
   return (
     <div className="space-y-6">
       <div>
-        <h2 className="text-2xl font-bold text-foreground">Panel de Administracion</h2>
+        <h2 className="text-2xl font-bold text-foreground">Panel de Administración</h2>
         <p className="text-muted-foreground">
           {format(new Date(), "EEEE d 'de' MMMM, yyyy", { locale: es })}
         </p>
@@ -105,7 +105,7 @@ export default function AdminDashboard() {
                 <Stethoscope className="w-6 h-6 text-accent" />
               </div>
               <div>
-                <p className="text-sm text-muted-foreground">Medicos</p>
+                <p className="text-sm text-muted-foreground">Médicos</p>
                 <p className="text-2xl font-bold text-foreground">{stats.activeDoctors}</p>
                 <p className="text-xs text-muted-foreground">{stats.activeSpecialties} especialidades</p>
               </div>
@@ -145,7 +145,7 @@ export default function AdminDashboard() {
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
         <Card>
           <CardHeader>
-            <CardTitle>Turnos Ultimos 7 Dias</CardTitle>
+            <CardTitle>Turnos Últimos 7 Días</CardTitle>
           </CardHeader>
           <CardContent>
             <div className="h-[300px]">
@@ -171,7 +171,7 @@ export default function AdminDashboard() {
 
         <Card>
           <CardHeader>
-            <CardTitle>Distribucion de Estados</CardTitle>
+            <CardTitle>Distribución de Estados</CardTitle>
           </CardHeader>
           <CardContent>
             <div className="h-[300px] flex items-center justify-center">
@@ -214,14 +214,14 @@ export default function AdminDashboard() {
 
       <Card>
         <CardHeader>
-          <CardTitle>Estadisticas por Medico</CardTitle>
+          <CardTitle>Estadísticas por Médico</CardTitle>
         </CardHeader>
         <CardContent>
           <div className="overflow-x-auto">
             <table className="w-full">
               <thead>
                 <tr className="border-b border-border">
-                  <th className="text-left py-3 px-4 text-sm font-medium text-muted-foreground">Medico</th>
+                  <th className="text-left py-3 px-4 text-sm font-medium text-muted-foreground">Médico</th>
                   <th className="text-left py-3 px-4 text-sm font-medium text-muted-foreground">Especialidad</th>
                   <th className="text-center py-3 px-4 text-sm font-medium text-muted-foreground">Total</th>
                   <th className="text-center py-3 px-4 text-sm font-medium text-muted-foreground">Atendidos</th>
