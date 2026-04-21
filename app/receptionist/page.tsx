@@ -44,7 +44,7 @@ export default function ReceptionistDashboard() {
     <div className="space-y-6">
       <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4">
         <div>
-          <h2 className="text-2xl font-bold text-foreground">Panel de Recepcion</h2>
+          <h2 className="text-2xl font-bold text-foreground">Panel de Recepción</h2>
           <p className="text-muted-foreground">
             {format(new Date(), "EEEE d 'de' MMMM, yyyy", { locale: es })}
           </p>
@@ -164,7 +164,7 @@ export default function ReceptionistDashboard() {
 
         <Card>
           <CardHeader>
-            <CardTitle>Medicos Activos Hoy</CardTitle>
+            <CardTitle>Médicos Activos Hoy</CardTitle>
           </CardHeader>
           <CardContent>
             <div className="space-y-3">

@@ -23,6 +23,14 @@ export default function AdminDashboard() {
   
   const today = new Date()
   const todayStr = format(today, 'yyyy-MM-dd')
+
+  const chartColors = {
+    total: '#60A5FA',
+    completed: '#38BDF8',
+    cancelled: '#7DD3FC',
+    absent: '#7DD3FC',
+    pending: '#93C5FD',
+  }
   
   const stats = {
     totalPatients: store.patients.length,
@@ -48,10 +56,10 @@ export default function AdminDashboard() {
   })
 
   const statusDistribution = [
-    { name: 'Atendidos', value: store.appointments.filter(a => a.status === 'completed').length, color: 'hsl(var(--chart-2))' },
-    { name: 'Cancelados', value: store.appointments.filter(a => a.status === 'cancelled').length, color: 'hsl(var(--chart-5))' },
-    { name: 'Ausentes', value: store.appointments.filter(a => a.status === 'absent').length, color: 'hsl(var(--chart-3))' },
-    { name: 'Pendientes', value: store.appointments.filter(a => a.status === 'scheduled' || a.status === 'waiting').length, color: 'hsl(var(--chart-1))' },
+    { name: 'Atendidos', value: store.appointments.filter(a => a.status === 'completed').length, color: chartColors.completed },
+    { name: 'Cancelados', value: store.appointments.filter(a => a.status === 'cancelled').length, color: chartColors.total },
+    { name: 'Ausentes', value: store.appointments.filter(a => a.status === 'absent').length, color: chartColors.absent },
+    { name: 'Pendientes', value: store.appointments.filter(a => a.status === 'scheduled' || a.status === 'waiting').length, color: chartColors.pending },
   ]
 
   const doctorStats = store.doctors.map(doctor => {
@@ -69,7 +77,7 @@ export default function AdminDashboard() {
   return (
     <div className="space-y-6">
       <div>
-        <h2 className="text-2xl font-bold text-foreground">Panel de Administracion</h2>
+        <h2 className="text-2xl font-bold text-foreground">Panel de Administración</h2>
         <p className="text-muted-foreground">
           {format(new Date(), "EEEE d 'de' MMMM, yyyy", { locale: es })}
         </p>
@@ -97,7 +105,7 @@ export default function AdminDashboard() {
                 <Stethoscope className="w-6 h-6 text-accent" />
               </div>
               <div>
-                <p className="text-sm text-muted-foreground">Medicos</p>
+                <p className="text-sm text-muted-foreground">Médicos</p>
                 <p className="text-2xl font-bold text-foreground">{stats.activeDoctors}</p>
                 <p className="text-xs text-muted-foreground">{stats.activeSpecialties} especialidades</p>
               </div>
@@ -137,7 +145,7 @@ export default function AdminDashboard() {
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
         <Card>
           <CardHeader>
-            <CardTitle>Turnos Ultimos 7 Dias</CardTitle>
+            <CardTitle>Turnos Últimos 7 Días</CardTitle>
           </CardHeader>
           <CardContent>
             <div className="h-[300px]">
@@ -153,8 +161,8 @@ export default function AdminDashboard() {
                       borderRadius: '8px',
                     }}
                   />
-                  <Bar dataKey="total" name="Total" fill="hsl(var(--chart-1))" radius={[4, 4, 0, 0]} />
-                  <Bar dataKey="completed" name="Completados" fill="hsl(var(--chart-2))" radius={[4, 4, 0, 0]} />
+                  <Bar dataKey="total" name="Total" fill={chartColors.total} radius={[4, 4, 0, 0]} />
+                  <Bar dataKey="completed" name="Completados" fill={chartColors.completed} radius={[4, 4, 0, 0]} />
                 </BarChart>
               </ResponsiveContainer>
             </div>
@@ -163,7 +171,7 @@ export default function AdminDashboard() {
 
         <Card>
           <CardHeader>
-            <CardTitle>Distribucion de Estados</CardTitle>
+            <CardTitle>Distribución de Estados</CardTitle>
           </CardHeader>
           <CardContent>
             <div className="h-[300px] flex items-center justify-center">
@@ -206,14 +214,14 @@ export default function AdminDashboard() {
 
       <Card>
         <CardHeader>
-          <CardTitle>Estadisticas por Medico</CardTitle>
+          <CardTitle>Estadísticas por Médico</CardTitle>
         </CardHeader>
         <CardContent>
           <div className="overflow-x-auto">
             <table className="w-full">
               <thead>
                 <tr className="border-b border-border">
-                  <th className="text-left py-3 px-4 text-sm font-medium text-muted-foreground">Medico</th>
+                  <th className="text-left py-3 px-4 text-sm font-medium text-muted-foreground">Médico</th>
                   <th className="text-left py-3 px-4 text-sm font-medium text-muted-foreground">Especialidad</th>
                   <th className="text-center py-3 px-4 text-sm font-medium text-muted-foreground">Total</th>
                   <th className="text-center py-3 px-4 text-sm font-medium text-muted-foreground">Atendidos</th>

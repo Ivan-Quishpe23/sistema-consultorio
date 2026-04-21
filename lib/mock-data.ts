@@ -44,11 +44,11 @@ export const mockUsers: User[] = [
 ]
 
 export const mockSpecialties: Specialty[] = [
-  { id: 'spec-1', name: 'Medicina General', description: 'Consulta medica general y preventiva', active: true },
-  { id: 'spec-2', name: 'Pediatria', description: 'Atencion medica para ninos y adolescentes', active: true },
-  { id: 'spec-3', name: 'Cardiologia', description: 'Especialidad del corazon y sistema circulatorio', active: true },
-  { id: 'spec-4', name: 'Dermatologia', description: 'Especialidad de la piel', active: true },
-  { id: 'spec-5', name: 'Ginecologia', description: 'Salud de la mujer', active: true },
+  { id: 'spec-1', name: 'Medicina General', description: 'Consulta médica general y preventiva', active: true },
+  { id: 'spec-2', name: 'Pediatría', description: 'Atención médica para niños y adolescentes', active: true },
+  { id: 'spec-3', name: 'Cardiología', description: 'Especialidad del corazón y sistema circulatorio', active: true },
+  { id: 'spec-4', name: 'Dermatología', description: 'Especialidad de la piel', active: true },
+  { id: 'spec-5', name: 'Ginecología', description: 'Salud de la mujer', active: true },
 ]
 
 export const mockDoctors: Doctor[] = [
