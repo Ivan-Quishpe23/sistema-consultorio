@@ -23,14 +23,14 @@ Este proyecto es un sistema de gestión para un consultorio médico, que organiz
 ## Módulos del sistema
 
 - **Admin**
-  - Especialidades
-  - Excepciones
-  - Médicos
-  - Reportes
+  - Especialidades.
+  - Excepciones.
+  - Médicos.
+  - Reportes.
 - **Doctor**
-  - Agenda
-  - Configuración
-  - Pacientes
+  - Agenda.
+  - Configuración.
+  - Pacientes.
 - **Patient**
   - Perfil
   - Solicitar turno
