@@ -1,4 +1,5 @@
 # Sistema Consultorio
+Equipo B
 
 ## Dashboard del Proyecto
 
