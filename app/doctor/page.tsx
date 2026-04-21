@@ -53,7 +53,7 @@ export default function DoctorQueue() {
     <div className="space-y-6">
       <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4">
         <div>
-          <h2 className="text-2xl font-bold text-foreground">Mi Cola de Atencion</h2>
+          <h2 className="text-2xl font-bold text-foreground">Mi Cola de Atención</h2>
           <p className="text-muted-foreground">
             {format(new Date(), "EEEE d 'de' MMMM, yyyy", { locale: es })}
           </p>
@@ -96,7 +96,7 @@ export default function DoctorQueue() {
                         {getPatient(currentPatient.patientId)?.fullName}
                       </p>
                       <div className="flex items-center gap-4 mt-2 text-sm text-muted-foreground">
-                        <span>Cedula: {getPatient(currentPatient.patientId)?.cedula}</span>
+                        <span>Cédula: {getPatient(currentPatient.patientId)?.cedula}</span>
                         <span>Hora cita: {currentPatient.time}</span>
                       </div>
                     </div>
@@ -193,7 +193,7 @@ export default function DoctorQueue() {
         <div className="space-y-6">
           <Card>
             <CardHeader>
-              <CardTitle>Resumen del Dia</CardTitle>
+              <CardTitle>Resumen del Día</CardTitle>
             </CardHeader>
             <CardContent className="space-y-4">
               {doctor && (() => {
@@ -234,7 +234,7 @@ export default function DoctorQueue() {
 
           <Card>
             <CardHeader>
-              <CardTitle>Informacion</CardTitle>
+              <CardTitle>Información</CardTitle>
             </CardHeader>
             <CardContent className="space-y-3">
               <div>
@@ -246,7 +246,7 @@ export default function DoctorQueue() {
                 <p className="font-semibold text-foreground">{doctor?.startTime} - {doctor?.endTime}</p>
               </div>
               <div>
-                <p className="text-sm text-muted-foreground">Duracion consulta</p>
+                <p className="text-sm text-muted-foreground">Duración consulta</p>
                 <p className="font-semibold text-foreground">{doctor?.consultationDuration} minutos</p>
               </div>
             </CardContent>
@@ -259,7 +259,7 @@ export default function DoctorQueue() {
           <DialogHeader>
             <DialogTitle>Marcar como Ausente</DialogTitle>
             <DialogDescription>
-              El paciente sera marcado como ausente y el turno finalizara. Esta accion no se puede deshacer.
+              El paciente será marcado como ausente y el turno finalizará. Esta acción no se puede deshacer.
             </DialogDescription>
           </DialogHeader>
           <DialogFooter>

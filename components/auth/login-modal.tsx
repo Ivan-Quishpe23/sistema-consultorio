@@ -12,11 +12,12 @@ import { Button } from '@/components/ui/button'
 import { Input } from '@/components/ui/input'
 import { Label } from '@/components/ui/label'
 import { useStore } from '@/lib/store'
+import type { User } from '@/lib/types'
 
 interface LoginModalProps {
   open: boolean
   onOpenChange: (open: boolean) => void
-  onSuccess: () => void
+  onSuccess: (user: User) => void
 }
 
 export function LoginModal({ open, onOpenChange, onSuccess }: LoginModalProps) {
@@ -37,9 +38,9 @@ export function LoginModal({ open, onOpenChange, onSuccess }: LoginModalProps) {
     const user = store.login(email, password)
     
     if (user) {
-      onSuccess()
+      onSuccess(user)
     } else {
-      setError('Correo o contrasena incorrectos')
+      setError('Correo o contraseña incorrectos')
     }
     
     setIsLoading(false)
@@ -63,7 +64,7 @@ export function LoginModal({ open, onOpenChange, onSuccess }: LoginModalProps) {
               <Activity className="w-7 h-7 text-primary-foreground" />
             </div>
           </div>
-          <DialogTitle className="text-center text-2xl">Iniciar Sesion</DialogTitle>
+          <DialogTitle className="text-center text-2xl">Iniciar Sesión</DialogTitle>
         </DialogHeader>
         <form onSubmit={handleSubmit} className="space-y-4 mt-4">
           {error && (
@@ -73,7 +74,7 @@ export function LoginModal({ open, onOpenChange, onSuccess }: LoginModalProps) {
             </div>
           )}
           <div className="space-y-2">
-            <Label htmlFor="email">Correo Electronico</Label>
+            <Label htmlFor="email">Correo Electrónico</Label>
             <Input
               id="email"
               type="email"
@@ -85,12 +86,12 @@ export function LoginModal({ open, onOpenChange, onSuccess }: LoginModalProps) {
             />
           </div>
           <div className="space-y-2">
-            <Label htmlFor="password">Contrasena</Label>
+            <Label htmlFor="password">Contraseña</Label>
             <div className="relative">
               <Input
                 id="password"
                 type={showPassword ? 'text' : 'password'}
-                placeholder="Tu contrasena"
+                placeholder="Tu contraseña"
                 value={password}
                 onChange={(e) => setPassword(e.target.value)}
                 required

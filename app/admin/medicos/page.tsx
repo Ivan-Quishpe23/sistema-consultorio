@@ -25,6 +25,103 @@ import { useStore } from '@/lib/store'
 
 const dayNames = ['Domingo', 'Lunes', 'Martes', 'Miercoles', 'Jueves', 'Viernes', 'Sabado']
 
+interface FormContentProps {
+  formData: any
+  setFormData: (data: any) => void
+  toggleWorkDay: (day: number) => void
+  specialties: any[]
+}
+
+const FormContent = ({ formData, setFormData, toggleWorkDay, specialties }: FormContentProps) => (
+  <>
+    <div className="space-y-2">
+      <Label htmlFor="name">Nombre Completo *</Label>
+      <Input
+        id="name"
+        value={formData.name}
+        onChange={(e) => setFormData({ ...formData, name: e.target.value })}
+        required
+      />
+    </div>
+    <div className="space-y-2">
+      <Label htmlFor="specialty">Especialidad *</Label>
+      <Select value={formData.specialtyId} onValueChange={(v) => setFormData({ ...formData, specialtyId: v })}>
+        <SelectTrigger>
+          <SelectValue placeholder="Seleccionar especialidad" />
+        </SelectTrigger>
+        <SelectContent>
+          {specialties.filter(s => s.active).map((specialty) => (
+            <SelectItem key={specialty.id} value={specialty.id}>
+              {specialty.name}
+            </SelectItem>
+          ))}
+        </SelectContent>
+      </Select>
+    </div>
+    <div className="space-y-2">
+      <Label htmlFor="consultRoom">Consultorio *</Label>
+      <Input
+        id="consultRoom"
+        value={formData.consultRoom}
+        onChange={(e) => setFormData({ ...formData, consultRoom: e.target.value })}
+        placeholder="Ej: Consultorio 101"
+        required
+      />
+    </div>
+    <div className="grid grid-cols-2 gap-4">
+      <div className="space-y-2">
+        <Label htmlFor="startTime">Hora Inicio *</Label>
+        <Input
+          id="startTime"
+          type="time"
+          value={formData.startTime}
+          onChange={(e) => setFormData({ ...formData, startTime: e.target.value })}
+          required
+        />
+      </div>
+      <div className="space-y-2">
+        <Label htmlFor="endTime">Hora Fin *</Label>
+        <Input
+          id="endTime"
+          type="time"
+          value={formData.endTime}
+          onChange={(e) => setFormData({ ...formData, endTime: e.target.value })}
+          required
+        />
+      </div>
+    </div>
+    <div className="space-y-2">
+      <Label htmlFor="duration">Duracion Consulta (minutos) *</Label>
+      <Input
+        id="duration"
+        type="number"
+        min={10}
+        max={120}
+        value={formData.consultationDuration}
+        onChange={(e) => setFormData({ ...formData, consultationDuration: parseInt(e.target.value) })}
+        required
+      />
+    </div>
+    <div className="space-y-2">
+      <Label>Dias Laborables</Label>
+      <div className="flex flex-wrap gap-2">
+        {dayNames.map((day, index) => (
+          <div key={day} className="flex items-center gap-2">
+            <Checkbox
+              id={`day-${index}`}
+              checked={formData.workDays.includes(index)}
+              onCheckedChange={() => toggleWorkDay(index)}
+            />
+            <Label htmlFor={`day-${index}`} className="text-sm cursor-pointer">
+              {day.slice(0, 3)}
+            </Label>
+          </div>
+        ))}
+      </div>
+    </div>
+  </>
+)
+
 export default function DoctorsPage() {
   const store = useStore()
   const [showNewModal, setShowNewModal] = useState(false)
@@ -123,95 +220,6 @@ export default function DoctorsPage() {
     }
   }
 
-  const FormContent = () => (
-    <>
-      <div className="space-y-2">
-        <Label htmlFor="name">Nombre Completo *</Label>
-        <Input
-          id="name"
-          value={formData.name}
-          onChange={(e) => setFormData({ ...formData, name: e.target.value })}
-          required
-        />
-      </div>
-      <div className="space-y-2">
-        <Label htmlFor="specialty">Especialidad *</Label>
-        <Select value={formData.specialtyId} onValueChange={(v) => setFormData({ ...formData, specialtyId: v })}>
-          <SelectTrigger>
-            <SelectValue placeholder="Seleccionar especialidad" />
-          </SelectTrigger>
-          <SelectContent>
-            {store.specialties.filter(s => s.active).map((specialty) => (
-              <SelectItem key={specialty.id} value={specialty.id}>
-                {specialty.name}
-              </SelectItem>
-            ))}
-          </SelectContent>
-        </Select>
-      </div>
-      <div className="space-y-2">
-        <Label htmlFor="consultRoom">Consultorio *</Label>
-        <Input
-          id="consultRoom"
-          value={formData.consultRoom}
-          onChange={(e) => setFormData({ ...formData, consultRoom: e.target.value })}
-          placeholder="Ej: Consultorio 101"
-          required
-        />
-      </div>
-      <div className="grid grid-cols-2 gap-4">
-        <div className="space-y-2">
-          <Label htmlFor="startTime">Hora Inicio *</Label>
-          <Input
-            id="startTime"
-            type="time"
-            value={formData.startTime}
-            onChange={(e) => setFormData({ ...formData, startTime: e.target.value })}
-            required
-          />
-        </div>
-        <div className="space-y-2">
-          <Label htmlFor="endTime">Hora Fin *</Label>
-          <Input
-            id="endTime"
-            type="time"
-            value={formData.endTime}
-            onChange={(e) => setFormData({ ...formData, endTime: e.target.value })}
-            required
-          />
-        </div>
-      </div>
-      <div className="space-y-2">
-        <Label htmlFor="duration">Duracion Consulta (minutos) *</Label>
-        <Input
-          id="duration"
-          type="number"
-          min={10}
-          max={120}
-          value={formData.consultationDuration}
-          onChange={(e) => setFormData({ ...formData, consultationDuration: parseInt(e.target.value) })}
-          required
-        />
-      </div>
-      <div className="space-y-2">
-        <Label>Dias Laborables</Label>
-        <div className="flex flex-wrap gap-2">
-          {dayNames.map((day, index) => (
-            <div key={day} className="flex items-center gap-2">
-              <Checkbox
-                id={`day-${index}`}
-                checked={formData.workDays.includes(index)}
-                onCheckedChange={() => toggleWorkDay(index)}
-              />
-              <Label htmlFor={`day-${index}`} className="text-sm cursor-pointer">
-                {day.slice(0, 3)}
-              </Label>
-            </div>
-          ))}
-        </div>
-      </div>
-    </>
-  )
 
   return (
     <div className="space-y-6">
@@ -309,7 +317,12 @@ export default function DoctorsPage() {
             <DialogTitle>Nuevo Medico</DialogTitle>
           </DialogHeader>
           <form onSubmit={handleSubmitNew} className="space-y-4">
-            <FormContent />
+            <FormContent 
+              formData={formData} 
+              setFormData={setFormData} 
+              toggleWorkDay={toggleWorkDay} 
+              specialties={store.specialties} 
+            />
             <div className="flex gap-3">
               <Button type="button" variant="outline" onClick={() => setShowNewModal(false)} className="flex-1">
                 Cancelar
@@ -328,7 +341,12 @@ export default function DoctorsPage() {
             <DialogTitle>Editar Medico</DialogTitle>
           </DialogHeader>
           <form onSubmit={handleSubmitEdit} className="space-y-4">
-            <FormContent />
+            <FormContent 
+              formData={formData} 
+              setFormData={setFormData} 
+              toggleWorkDay={toggleWorkDay} 
+              specialties={store.specialties} 
+            />
             <div className="flex gap-3">
               <Button type="button" variant="outline" onClick={() => setEditDoctor(null)} className="flex-1">
                 Cancelar
