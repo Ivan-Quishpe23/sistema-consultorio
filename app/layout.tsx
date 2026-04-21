@@ -8,8 +8,8 @@ const _geist = Geist({ subsets: ["latin"] });
 const _geistMono = Geist_Mono({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
-  title: 'MediTurno - Sistema de Gestion de Turnos',
-  description: 'Sistema de gestion de turnos para consultorio medico. Solicita, gestiona y realiza seguimiento de tus citas medicas.',
+  title: 'MediTurno - Sistema de Gestión de Turnos',
+  description: 'Sistema de gestión de turnos para consultorio médico. Solicita, gestiona y realiza seguimiento de tus citas médicas.',
   generator: 'v0.app',
   icons: {
     icon: [
