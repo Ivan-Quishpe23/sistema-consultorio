@@ -6,29 +6,28 @@ import { Calendar, Clock, Users, Shield, ArrowRight, Activity } from 'lucide-rea
 import { Button } from '@/components/ui/button'
 import { useStore } from '@/lib/store'
 import { LoginModal } from '@/components/auth/login-modal'
+import type { User } from '@/lib/types'
 
 export default function HomePage() {
   const [showLogin, setShowLogin] = useState(false)
   const router = useRouter()
   const store = useStore()
 
-  const handleLoginSuccess = () => {
+  const handleLoginSuccess = (user: User) => {
     setShowLogin(false)
-    if (store.currentUser) {
-      switch (store.currentUser.role) {
-        case 'admin':
-          router.push('/admin')
-          break
-        case 'doctor':
-          router.push('/doctor')
-          break
-        case 'receptionist':
-          router.push('/receptionist')
-          break
-        case 'patient':
-          router.push('/patient')
-          break
-      }
+    switch (user.role) {
+      case 'admin':
+        router.push('/admin')
+        break
+      case 'doctor':
+        router.push('/doctor')
+        break
+      case 'receptionist':
+        router.push('/receptionist')
+        break
+      case 'patient':
+        router.push('/patient')
+        break
     }
   }
 

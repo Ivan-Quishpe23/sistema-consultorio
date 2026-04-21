@@ -12,11 +12,12 @@ import { Button } from '@/components/ui/button'
 import { Input } from '@/components/ui/input'
 import { Label } from '@/components/ui/label'
 import { useStore } from '@/lib/store'
+import type { User } from '@/lib/types'
 
 interface LoginModalProps {
   open: boolean
   onOpenChange: (open: boolean) => void
-  onSuccess: () => void
+  onSuccess: (user: User) => void
 }
 
 export function LoginModal({ open, onOpenChange, onSuccess }: LoginModalProps) {
@@ -37,7 +38,7 @@ export function LoginModal({ open, onOpenChange, onSuccess }: LoginModalProps) {
     const user = store.login(email, password)
     
     if (user) {
-      onSuccess()
+      onSuccess(user)
     } else {
       setError('Correo o contrasena incorrectos')
     }

@@ -42,12 +42,23 @@ Este proyecto es un sistema de gestión para un consultorio médico, que organiz
 - **Sala de espera**
   - Vista de control de sala de espera
 
-## Documentación
+## Instalación y ejecución
 
-- Código fuente en `app/`, `components/`, `lib/`.
-- Configuración de Next.js en `next.config.mjs`.
-- Tipos y utilidades en `lib/types.ts`, `lib/utils.ts`.
-- Componentes UI reutilizables en `components/ui/`.
+Para ejecutar el proyecto localmente:
+
+1. Instala las dependencias:
+   ```
+   pnpm install
+   ```
+
+2. Inicia el servidor de desarrollo:
+   ```
+   pnpm dev
+   ```
+
+3. Abre tu navegador y ve a `http://localhost:3000`.
+
+## Documentación
 
 ## Prototipo de interfaz
 

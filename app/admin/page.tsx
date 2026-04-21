@@ -23,6 +23,14 @@ export default function AdminDashboard() {
   
   const today = new Date()
   const todayStr = format(today, 'yyyy-MM-dd')
+
+  const chartColors = {
+    total: '#60A5FA',
+    completed: '#38BDF8',
+    cancelled: '#7DD3FC',
+    absent: '#7DD3FC',
+    pending: '#93C5FD',
+  }
   
   const stats = {
     totalPatients: store.patients.length,
@@ -48,10 +56,10 @@ export default function AdminDashboard() {
   })
 
   const statusDistribution = [
-    { name: 'Atendidos', value: store.appointments.filter(a => a.status === 'completed').length, color: 'hsl(var(--chart-2))' },
-    { name: 'Cancelados', value: store.appointments.filter(a => a.status === 'cancelled').length, color: 'hsl(var(--chart-5))' },
-    { name: 'Ausentes', value: store.appointments.filter(a => a.status === 'absent').length, color: 'hsl(var(--chart-3))' },
-    { name: 'Pendientes', value: store.appointments.filter(a => a.status === 'scheduled' || a.status === 'waiting').length, color: 'hsl(var(--chart-1))' },
+    { name: 'Atendidos', value: store.appointments.filter(a => a.status === 'completed').length, color: chartColors.completed },
+    { name: 'Cancelados', value: store.appointments.filter(a => a.status === 'cancelled').length, color: chartColors.total },
+    { name: 'Ausentes', value: store.appointments.filter(a => a.status === 'absent').length, color: chartColors.absent },
+    { name: 'Pendientes', value: store.appointments.filter(a => a.status === 'scheduled' || a.status === 'waiting').length, color: chartColors.pending },
   ]
 
   const doctorStats = store.doctors.map(doctor => {
@@ -153,8 +161,8 @@ export default function AdminDashboard() {
                       borderRadius: '8px',
                     }}
                   />
-                  <Bar dataKey="total" name="Total" fill="hsl(var(--chart-1))" radius={[4, 4, 0, 0]} />
-                  <Bar dataKey="completed" name="Completados" fill="hsl(var(--chart-2))" radius={[4, 4, 0, 0]} />
+                  <Bar dataKey="total" name="Total" fill={chartColors.total} radius={[4, 4, 0, 0]} />
+                  <Bar dataKey="completed" name="Completados" fill={chartColors.completed} radius={[4, 4, 0, 0]} />
                 </BarChart>
               </ResponsiveContainer>
             </div>

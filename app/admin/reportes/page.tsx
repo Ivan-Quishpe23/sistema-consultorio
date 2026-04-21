@@ -322,8 +322,8 @@ export default function ReportsPage() {
                         borderRadius: '8px',
                       }}
                     />
-                    <Bar dataKey="completed" name="Atendidos" fill="hsl(var(--chart-2))" radius={[0, 4, 4, 0]} />
-                    <Bar dataKey="absent" name="Ausentes" fill="hsl(var(--chart-5))" radius={[0, 4, 4, 0]} />
+                    <Bar dataKey="completed" name="Atendidos" fill="#38BDF8" radius={[0, 4, 4, 0]} />
+                    <Bar dataKey="absent" name="Ausentes" fill="#7DD3FC" radius={[0, 4, 4, 0]} />
                   </BarChart>
                 </ResponsiveContainer>
               </div>
